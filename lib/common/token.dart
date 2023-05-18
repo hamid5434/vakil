@@ -21,6 +21,12 @@ class Token {
     return true;
   }
 
+  static Future<String> getToken() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String token = prefs.getString("token") ?? '';
+   return token;
+  }
+
   static Future<bool> savedUser(
       {required String username, required String password}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
