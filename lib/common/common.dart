@@ -11,7 +11,7 @@ import 'package:vakil_0098/main.dart';
 
 class Common {
   static final ValueNotifier<Locale?> localeChangeNotifier =
-      ValueNotifier(null);
+      ValueNotifier(const Locale("en", "US"));
   static final ValueNotifier<String> themeChangeNotifier =
       ValueNotifier('light');
 

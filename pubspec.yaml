@@ -36,7 +36,6 @@ dependencies:
   dotted_line: ^3.1.0
   dotted_border: ^2.0.0+3
   wechat_assets_picker: ^8.1.2
-  flutter_bluetooth_serial: ^0.4.0
   permission_handler: ^10.2.0
   dropdown_search: ^4.0.0
   fluttertoast: ^8.2.1
@@ -59,4 +58,3 @@ flutter:
     - family: iransans
       fonts:
         - asset: assets/fonts/iran_sans.ttf
-    - family: HacenTunisia
