@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:vakil_0098/l10n/l10n.dart';
-import 'package:vakil_0098/screen/home_screen.dart';
+import 'package:vakil_0098/screen/auth/login_screen.dart';
 import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'common/common.dart';
 import 'common/theme.dart';
+import 'screen/home/home_screen.dart';
+import 'screen/home/root_screen.dart';
 
 
 final navigatorKey = GlobalKey<NavigatorState>();
@@ -33,32 +35,23 @@ class MyApp extends StatelessWidget {
           builder: (context, value, child) {
             return Directionality(
               textDirection: TextDirection.rtl,
-              child: MultiRepositoryProvider(
-                providers: [
-
+              child: MaterialApp(
+                //showPerformanceOverlay: true,
+                locale: Common.localeChangeNotifier.value,
+                supportedLocales: L10N.all,
+                navigatorKey: navigatorKey,
+                localizationsDelegates: const [
+                  AppLocalizations.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
                 ],
-                child: MultiBlocProvider(
-                  providers: [
-                  ],
-                  child: MaterialApp(
-                    //showPerformanceOverlay: true,
-                    locale: Common.localeChangeNotifier.value,
-                    supportedLocales: L10N.all,
-                    navigatorKey: navigatorKey,
-                    localizationsDelegates: const [
-                      AppLocalizations.delegate,
-                      GlobalMaterialLocalizations.delegate,
-                      GlobalCupertinoLocalizations.delegate,
-                      GlobalWidgetsLocalizations.delegate,
-                    ],
-                    title: 'OK',
-                    theme: theme(themeType: Common.themeChangeNotifier.value),
-                    debugShowCheckedModeBanner: false,
-                    home: HomeScreen(),
-                    //onGenerateRoute: AppRouter.onGenerateRoute,
-                    // initialRoute: AppName.DEFUALT,
-                  ),
-                ),
+                title: 'OK',
+                theme: theme(themeType: Common.themeChangeNotifier.value),
+                debugShowCheckedModeBanner: false,
+                home: LoginScreen(),
+                //onGenerateRoute: AppRouter.onGenerateRoute,
+                // initialRoute: AppName.DEFUALT,
               ),
             );
           },

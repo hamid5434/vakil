@@ -1,10 +1,11 @@
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:vakil_0098/models/auth/user_model.dart';
 
 import 'encrypt.dart';
 
 
 class Token {
-  //static AuthModel? resultToken;
+  static User? resultToken;
 
   static Future<String> setToken({required String resultToken}) async {
     //Token.resultToken = resultToken;
@@ -37,6 +38,15 @@ class Token {
     await prefs.setString("username", username);
     await prefs.setString("password", password);
     return true;
+  }
+
+  static Future<bool> reomveUserSaved() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var username = await prefs.remove("username");
+    var password = await prefs.remove("password");
+    var token = await prefs.remove("token");
+    if (username == true && password == true) return true;
+    return false;
   }
 
   static Future<bool> setlocaleApp({required String localeName}) async {
