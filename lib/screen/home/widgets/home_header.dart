@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:vakil_0098/common/token.dart';
 import 'package:vakil_0098/screen/widgets/dialog/custom_dialog.dart';
 import 'package:vakil_0098/screen/widgets/dialog/i_custom_dialog.dart';

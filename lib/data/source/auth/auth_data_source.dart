@@ -18,7 +18,7 @@ class AuthDataSource implements IAuthDataSource {
     String url = AppUrls.auth;
     var result = await service.post(
         url: url,
-        body: {"email": "$username", "Password": "$password"});
+        body: {"email": username, "password": password});
 
     var auth = UserModel.fromJson(result);
 

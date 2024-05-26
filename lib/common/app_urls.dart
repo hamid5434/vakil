@@ -1,7 +1,7 @@
 
 class AppUrls {
 
-  static const  String _base = "http://127.0.0.1:8000/";
+  static const  String _base = "https://vakil0098.ir/hamid/";
 
   static const  String banner =  "${_base}api/v1/login";
 

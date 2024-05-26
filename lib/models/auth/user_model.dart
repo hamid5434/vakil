@@ -17,7 +17,7 @@ class UserModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['access_token'] = accessToken;
     data['token_type'] = tokenType;
     if (user != null) {
@@ -51,7 +51,7 @@ class User {
         email,
         updatedAt,
         createdAt,
-        fullname,
+        fullName,
       });
 
   User.fromJson(Map<String, dynamic> json) {
@@ -60,7 +60,7 @@ class User {
     lastName = json['last_name'];
     birthDay = json['birth_day'];
     education = json['education'];
-    active = json['active'];
+    active = int.tryParse(json['active']) ?? 0;
     phoneNumber = json['phone_number'];
     email = json['email'];
     updatedAt = json['updated_at'];

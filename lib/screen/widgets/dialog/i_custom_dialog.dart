@@ -1,4 +1,3 @@
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 
 abstract class ICustomDialog {
@@ -8,7 +7,8 @@ abstract class ICustomDialog {
     required BuildContext context,
     GestureTapCallback? btnOkOnPress,
     GestureTapCallback? btnCancelOnPress,
-    Function(DismissType)? onDismissCallback,
+    //Function(DismissType)? onDismissCallback,
+    Function(String)? onDismissCallback,
     String btnOkText = 'تایید',
     String btnCancelText= 'برگشت',
     IconData btnCancelIcon = Icons.close,
@@ -20,7 +20,7 @@ abstract class ICustomDialog {
     required BuildContext context,
     GestureTapCallback? btnOkOnPress,
     GestureTapCallback? btnCancelOnPress,
-    Function(DismissType) onDismissCallback,
+    Function(String)? onDismissCallback,
     String btnOkText = 'تایید',
     String btnCancelText= 'برگشت',
     IconData btnCancelIcon = Icons.close,
@@ -32,7 +32,7 @@ abstract class ICustomDialog {
     required BuildContext context,
     GestureTapCallback? btnOkOnPress,
     GestureTapCallback? btnCancelOnPress,
-    Function(DismissType)? onDismissCallback,
+    Function(String)? onDismissCallback,
     String btnOkText = 'تایید',
     String btnCancelText= 'برگشت',
     IconData btnCancelIcon = Icons.close,
@@ -44,12 +44,38 @@ abstract class ICustomDialog {
     required BuildContext context,
     GestureTapCallback? btnOkOnPress,
     GestureTapCallback? btnCancelOnPress,
-    Function(DismissType)? onDismissCallback,
+    Function(String)? onDismissCallback,
     String btnOkText = 'تایید',
     String btnCancelText= 'برگشت',
     IconData btnCancelIcon = Icons.close,
     IconData btnOkIcon = Icons.check_circle,
   });
+  Future<dynamic>? dialogInfo({
+    String title = 'افق کوروش',
+    required String desc,
+    required BuildContext context,
+    GestureTapCallback? btnOkOnPress,
+    GestureTapCallback? btnCancelOnPress,
+    Function(String)? onDismissCallback,
+    String btnOkText = 'تایید',
+    String btnCancelText= 'برگشت',
+    IconData btnCancelIcon = Icons.close,
+    IconData btnOkIcon = Icons.check_circle,
+  });
+
+  Future<dynamic>? appDialog({
+    Widget? title,
+    Widget? content,
+    String? contentLabel,
+    List<Widget>? actions,
+    String? actionLabelLeft,
+    String? actionLabelRight,
+    GestureTapCallback? onTapLeft,
+    GestureTapCallback? onTapRight,
+    GestureTapCallback? onTapClose,
+    MainAxisAlignment? actionsAlignment,
+  });
+
 }
 
 // // This is a block of Model Dialog
